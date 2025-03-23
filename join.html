@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>djug雑談部 ルール</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f3f3f3;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 600px;
+            padding: 24px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #3f51b5;
+            margin-bottom: 20px;
+        }
+
+        .rules {
+            border: 1px solid #ddd;
+            padding: 16px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            height: 300px;
+            overflow-y: auto;
+        }
+
+        .rules p {
+            margin-bottom: 8px;
+        }
+
+        .agreement {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .mdc-checkbox {
+            margin-right: 10px;
+        }
+
+        #agreeButton {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            background-color: #4caf50;
+            color: white;
+        }
+
+        #agreeButton:disabled {
+            background-color: #bdbdbd;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>djug雑談部 ルール</h1>
+        <div class="rules">
+            <p><strong>誹謗中傷をしないこと</strong></p>
+            <p>当サーバーに入部中のメンバーやリアルの人等の誹謗中傷をしないでください。それで人びとたちは苦しんでしまいます。</p>
+            <p><strong>荒らしをしないこと</strong></p>
+            <p>当サーバーは、荒らしで楽しむサーバーではありません！荒らしをされると、削除が大変になりますので絶対にしないでください。</p>
+            <p><strong>危険なファイルやリンクをアップしないこと</strong></p>
+            <p>トロイの木馬等の入ったファイルや詐欺サイト、位置情報を盗むサイト、アダルトコンテンツが掲載されたサイト等を投稿することはやめてください。</p>
+            <p><strong>★ライブチャンネルに関して★</strong></p>
+            <p>管理人の許可なく、ご自由に配信をしていただけます。</p>
+            <p><strong>★外部リンクについて★</strong></p>
+            <p>シェアや参照が出来るように外部リンクを貼り付けることを許可していますが、アクセスされる場合は十分に注意してからアクセスをするようお願いします。</p>
+            <p>※いかにも成人向けコンテンツの場合は、詐欺サイトの可能性がありますので、そのようなリンクを見つけたら、管理人のDMにてお知らせください。迅速に対応します。</p>
+            <p><strong>★著作権について★</strong></p>
+            <p>動画、画像、文章は著作権で保護されてることが多く、人又は団体の著作物を許可なくアップロードすることは、「著作権法」で定められています。絶対に他人の著作物を許可なく載せないでください。</p>
+        </div>
+        <div class="agreement">
+            <div class="mdc-checkbox">
+                <input type="checkbox" id="agreeCheckbox" class="mdc-checkbox__native-control">
+                <div class="mdc-checkbox__background">
+                    <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                        <path class="mdc-checkbox__checkmark-path" fill="none" stroke="white" d="M1.73,12.91 8.1,19.28 22.79,4.59"/>
+                    </svg>
+                    <div class="mdc-checkbox__mixedmark"></div>
+                </div>
+                <div class="mdc-checkbox__ripple"></div>
+            </div>
+            <label for="agreeCheckbox">上記ルールに同意します</label>
+        </div>
+        <button id="agreeButton" disabled>同意する</button>
+    </div>
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script>
+        const agreeCheckbox = document.getElementById('agreeCheckbox');
+        const agreeButton = document.getElementById('agreeButton');
+
+        agreeCheckbox.addEventListener('change', function() {
+            agreeButton.disabled = !this.checked;
+        });
+
+        agreeButton.addEventListener('click', function() {
+            window.location.href = 'https://discord.gg/FfT8trpRWZ'; // 招待リンクに遷移
+        });
+
+        // Material Componentsのチェックボックスを初期化
+        const checkbox = new mdc.checkbox.MDCCheckbox(document.querySelector('.mdc-checkbox'));
+    </script>
+</body>
+</html>
