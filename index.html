@@ -1,78 +1,252 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
-	<meta property="og:title" content="djugのページ">
-<meta property="og:description" content="ページの説明文">
+    <meta charset="UTF-8">
+<meta property="og:title" content="djugの雑談部公式サイト">
+<meta property="og:description" content="高校生がゆる～く運営！話題は何でもOKなDiscordサーバーの公式サイトです。共通の趣味を見つけたり、雑談したり、自由に楽しもう！">
 <meta property="og:url" content="https://djug2864.github.io/djug2864-talk/">
 <meta property="og:image" content="https://djug2864.github.io/djug2864-talk/favicon.png">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="djugの雑談部公式サイト">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>djugの雑談部公式ページ</title>
-  <link rel="icon" href="favicon.png">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="style.css">
+<meta property="og:site_name" content="djugのページ">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.png">
+    <title>djugの雑談部 - Discordサーバー | 公式サイト</title>
+    <!-- Tailwind CSSのCDNを読み込みます。これにより、簡単かつ迅速にスタイリングできます。 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <nav class="navbar navbar-light bg-light">
-    <div class="container">
-      <a class="navbar-brand" href="/">djugの雑談部公式ページ</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="https://djug2864.github.io">djug2864のページ</a>
-<a class="nav-link" href="https://twitter.com/djug2864talk">公式X(旧Twitter)</a>
-<a class="nav-link" href="help/index.html">ヘルプ</a>
-<a class="nav-link" href="help/role.html">ルール</a>
-          </li>
-          </ul>
-      </div>
-    </div>
-  </nav>
-<div class="container mt-5">
-    <div class="row">
-          <div class="card-body">
-<!--トップ-->
-	<div class="alert alert-danger" role="alert">
- お知らせ:　 2025/1/10に１周年を迎えました！
-</div>
-            <div class="image-container">
-  <img src="img/top.webp" alt="画像">
-  <div class="text-overlay">
-    <h1>djugの雑談部</h1>
-    <h5>のんびりやっているDiscordサーバー</h5>
-  </div>
-</div>
-<!--メイン-->
-<br>
-<h1 class="title">どんなところ？</h1>
-<p>のんびりとみんなで雑談しているサーバーです。荒らし対策も万全だよ</p>
-<br>
-<h1 class="title">いつ開設されたの？</h1>
-<p>2024年１月１０日に開設されました</p>
-<h1 class="title">管理人は誰？？</h1>
-<br>
-<p>知的障害者の高校生であるdjug２８６４が運営しています</p>
-<h1 class="title">入部しよう！</h1>
-<center><a href="join.html" class="btn btn-primary">　　　　　今すぐ参加する！　　　　</a></center>
+<body class="flex flex-col min-h-screen">
 
-          </div>
-          </div>
+    <!-- ヘッダー: ナビゲーションバーとハンバーガーメニュー -->
+    <header class="bg-white shadow-md py-4 sticky top-0 z-50">
+        <div class="container flex justify-between items-center">
+            <!-- ロゴ/サイトタイトル -->
+            <a href="index.html" class="text-2xl font-bold text-indigo-700 hover:text-indigo-900 transition duration-300">djugの雑談部</a>
+
+            <!-- ハンバーガーボタン (モバイルでのみ表示) -->
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                <!-- ハンバーガーアイコン (SVG) -->
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+
+            <!-- デスクトップ用ナビゲーション (デスクトップでのみ表示) -->
+            <nav class="hidden md:flex space-x-6" id="desktop-nav">
+                <ul class="flex space-x-6">
+                    <!-- 個別ページへのリンク -->
+                    <li><a href="faq.html" class="text-gray-700 hover:text-indigo-600 font-medium transition duration-300">よくある質問</a></li>
+                    <li><a href="terms.html" class="text-gray-700 hover:text-indigo-600 font-medium transition duration-300">参加規約</a></li>
+                    <li><a href="contact.html" class="text-gray-700 hover:text-indigo-600 font-medium transition duration-300">お問い合わせ</a></li>
+                </ul>
+            </nav>
         </div>
-      </div>
-      </div>
-  </div>
 
-<!--フッター-->
-<br><br><br>
-<footer class="footer">
-<br><p class="footer-copyright">© 2025 djugの雑談部</p>
-</footer>
+        <!-- モバイル用ナビゲーションメニュー (デフォルトで非表示、JSで切り替え) -->
+        <!-- md:hidden を設定することで、中画面以上では常に非表示になります。 -->
+        <nav id="mobile-menu" class="hidden md:hidden bg-white shadow-lg py-4 w-full">
+            <ul class="flex flex-col items-center space-y-4">
+                <!-- 個別ページへのリンク -->
+                <li><a href="faq.html" class="text-gray-700 hover:text-indigo-600 font-medium transition duration-300 block w-full text-center py-2">よくある質問</a></li>
+                <li><a href="terms.html" class="text-gray-700 hover:text-indigo-600 font-medium transition duration-300 block w-full text-center py-2">参加規約</a></li>
+                <li><a href="contact.html" class="text-gray-700 hover:text-indigo-600 font-medium transition duration-300 block w-full text-center py-2">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- ヒーローセクション: メインビジュアルとキャッチコピー -->
+    <section class="bg-gradient-to-r from-indigo-600 to-purple-700 text-white py-20 md:py-32 flex-grow flex items-center justify-center">
+        <div class="container text-center">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+                繋がり、語り合う場所。<br class="md:hidden">djugの雑談部へようこそ。
+            </h1>
+            <p class="text-xl md:text-2xl mb-10 opacity-90">
+                私たちは、様々なバックグラウンドを持つ人々が、気軽に情報を交換し、<br class="md:hidden">新しい発見をするためのオープンなコミュニティです。
+            </p>
+            <!-- Discord参加ボタン: href属性に直接Discord招待リンクを貼り付けてください -->
+            <a id="discord-invite-button-hero" href="join.html" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center bg-white text-indigo-700 hover:bg-gray-100 font-bold py-4 px-8 rounded-full text-xl transition duration-300 ease-in-out transform hover:scale-105 shadow-lg">
+                <!-- Discordアイコン（SVG） -->
+                <svg class="w-7 h-7 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.2 6.1c-.6-.7-1.4-1.2-2.3-1.5-.9-.3-1.9-.4-2.9-.3-.9.1-1.8.4-2.6.9-.8.5-1.4 1.1-1.9 1.9-.5-.8-1.2-1.4-2-1.9-.8-.5-1.7-.8-2.6-.9-1-.1-1.9 0-2.8.3-.9.3-1.7.8-2.3 1.5-.6.7-.9 1.6-.9 2.5v.1c0 2.2 1.2 4.3 3.3 5.4 0 0 .1.1.1.1.8.4 1.7.6 2.6.7 0 0 0 0 .1 0 .9-.1 1.7-.3 2.5-.7 0 0 0 0 .1-.1.8.4 1.7.6 2.6.7 0 0 0 0 .1 0 .9-.1 1.7-.3 2.5-.7.9-.4 1.6-.9 2.2-1.6 2.1-1 3.3-3.1 3.3-5.3v-.1c0-.9-.3-1.8-.9-2.5zm-5.4 8.7c-1.2 0-2.2-.9-2.2-2.1s1-2.1 2.2-2.1c1.2 0 2.2.9 2.2 2.1s-1 2.1-2.2 2.1zm-6.2 0c-1.2 0-2.2-.9-2.2-2.1s1-2.1 2.2-2.1c1.2 0 2.2.9 2.2 2.1s-1 2.1-2.2 2.1z"/>
+                </svg>
+                Discordに参加する
+            </a>
+            <!-- エラーメッセージ表示用の要素はJavaScriptでの設定が不要になったため削除 -->
+        </div>
+    </section>
+
+    <!-- 雑談部についてセクション (このコンテンツはトップページに残します) -->
+    <section id="about" class="bg-white py-16">
+        <div class="container">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">djugの雑談部について</h2>
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-1/2">
+                    <!-- コミュニティのイメージプレースホルダー画像 -->
+                    <img src="https://placehold.co/600x400/93C5FD/000000?text=About+Our+Community" alt="コミュニティのイメージ" class="rounded-lg shadow-lg w-full h-auto">
+                </div>
+                <div class="md:w-1/2 text-gray-700">
+                    <p class="mb-4 text-lg">
+                        djugの雑談部は、プログラミングやテクノロジーに興味がある方々はもちろん、趣味や日常の出来事など、どんな話題でも気軽に話し合えるDiscordサーバーです。私たちは、多様な視点と知識が交差する、オープンで友好的なコミュニティを目指しています。
+                    </p>
+                    <p class="mb-4 text-lg">
+                        現在、より多くのメンバーに参加していただき、活発な交流の場を創出することを目指しています。あなたの参加が、このコミュニティをさらに豊かにします。
+                    </p>
+                    <p class="mb-4 text-lg">
+                        初心者からベテランまで、どなたでも歓迎いたします。ぜひ一度、私たちのサーバーを覗いてみませんか？
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="voice-section">
+        <h2>参加者の声</h2>
+        <div id="voice-container" class="voice-container">
+            </div>
+    </div>
+
+    <!-- 活動内容/特徴セクション (このコンテンツはトップページに残します) -->
+<section id="features" class="bg-gray-50 py-16">
+        <div class="container">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">活動内容と特徴</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 特徴1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center">
+                    <div class="text-indigo-600 text-5xl mb-4">💬</div>
+                    <h3 class="text-xl font-semibold mb-2">幅広いトピック</h3>
+                    <p class="text-gray-600">プログラミングから日常の雑談まで、多岐にわたるテーマで交流が可能です。</p>
+                </div>
+                <!-- 特徴2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center">
+                    <div class="text-indigo-600 text-5xl mb-4">🤝</div>
+                    <h3 class="text-xl font-semibold mb-2">友好的なコミュニティ</h3>
+                    <p class="text-gray-600">新しいメンバーもすぐに馴染める、温かく歓迎する雰囲気です。</p>
+                </div>
+                <!-- 特徴3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center">
+                    <div class="text-indigo-600 text-5xl mb-4">💡</div>
+                    <h3 class="text-xl font-semibold mb-2">知識と経験の共有</h3>
+                    <p class="text-gray-600">疑問の解決や、新たな知見を得る機会に恵まれています。</p>
+                </div>
+                <!-- 特徴4 -->
+                <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center">
+                    <div class="text-indigo-600 text-5xl mb-4">🏡</div>
+                    <h3 class="text-xl font-semibold mb-2">実家にいるような安心感</h3>
+                    <p class="text-gray-600">落ち着いていて、日常の騒がしさから逃れることができます。</p>
+                </div>
+                <!-- 特徴5 -->
+                <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center">
+                    <div class="text-indigo-600 text-5xl mb-4">👥</div>
+                    <h3 class="text-xl font-semibold mb-2">親切な管理人が運営</h3>
+                    <p class="text-gray-600">ユーザーさんからのリクエストなどは喜んで受け入れます。(※受け入れない場合もあります。)</p>
+                </div>
+                <!-- 特徴6 -->
+                <div class="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center">
+                    <div class="text-indigo-600 text-5xl mb-4">🌍</div>
+                    <h3 class="text-xl font-semibold mb-2">他サーバーとも交流</h3>
+                    <p class="text-gray-600">グローバルチャットを導入しているので、様々な人達と話すことができます。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- お問い合わせ/フッター (このコンテンツはトップページに残します) -->
+    <footer id="contact" class="bg-gray-800 text-white py-12">
+        <div class="container text-center">
+            <h2 class="text-2xl font-bold mb-6">djugの雑談部へのお問い合わせ</h2>
+            <p class="text-lg mb-8">ご質問やご提案などございましたら、お気軽にお問い合わせください。</p>
+ <div class="flex justify-center items-center space-x-6 mb-8">
+                <!-- 公式X（旧Twitter）へのリンク: href属性に直接XアカウントのURLを、テキストにハンドル名を貼り付けてください -->
+                <div>
+                    <a id="x-link" href="contact.html" rel="noopener noreferrer"
+                       class="text-indigo-400 hover:text-indigo-200 font-medium text-lg transition duration-300">
+                        お問い合わせページへ
+                    </a>
+                    <!-- エラーメッセージ表示用の要素はJavaScriptでの設定が不要になったため削除 -->
+                </div>
+            </div>
+                    <!-- エラーメッセージ表示用の要素はJavaScriptでの設定が不要になったため削除 -->
+                </div>
+            </div>
+            <p class="text-gray-500 text-sm mt-8">&copy; 2025 djugの雑談部. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- ハンバーガーメニューのJavaScriptコード ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        // モバイルメニュー内の全てのリンクを取得
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+
+        // ハンバーガーボタンクリック時の処理
+        mobileMenuButton.addEventListener('click', () => {
+            // hiddenクラスをトグルして表示/非表示を切り替える
+            mobileMenu.classList.toggle('hidden');
+            // flexクラスをトグルして、表示時にflex-colレイアウトを適用する
+            mobileMenu.classList.toggle('flex');
+            mobileMenu.classList.toggle('flex-col');
+        });
+
+        // モバイルメニュー内のリンクがクリックされたらメニューを閉じる
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+                mobileMenu.classList.remove('flex-col');
+            });
+        });
+
+        console.log("djugの雑談部ホームページが読み込まれました。");
+        console.log("Discord招待リンクとXアカウントのURLをHTMLのaタグに直接設定してください。");
+
+// 参加者の声のデータ
+// ユーザー名とメッセージを配列で定義
+const participantVoices = [
+    { username: '入部歴3年', message: '空いてます' },
+    { username: '入部歴1年', message: 'とてもやさしい人が多いので、話しやすいサーバーです！' },
+    { username: '入部歴2年', message: '空いてます' },
+    { username: '入部歴5年', message: '空いてます' }
+];
+
+// HTMLの要素を取得
+const voiceContainer = document.getElementById('voice-container');
+
+// 参加者の声データを元に吹き出しを生成し、HTMLに追加する関数
+function createSpeechBubbles() {
+    // participantVoices配列の各要素に対して処理を行う
+    participantVoices.forEach(voice => {
+        // 新しいdiv要素を作成（吹き出しのコンテナ）
+        const bubble = document.createElement('div');
+        // CSSクラスを追加
+        bubble.classList.add('speech-bubble');
+
+        // ユーザー名を表示するp要素を作成
+        const username = document.createElement('p');
+        // CSSクラスを追加
+        username.classList.add('username');
+        // ユーザー名テキストを設定
+        username.textContent = voice.username;
+
+        // メッセージを表示するp要素を作成
+        const message = document.createElement('p');
+        // CSSクラスを追加
+        message.classList.add('message');
+        // メッセージテキストを設定
+        message.textContent = voice.message;
+
+        // 吹き出しコンテナにユーザー名とメッセージを追加
+        bubble.appendChild(username);
+        bubble.appendChild(message);
+
+        // 吹き出しコンテナをHTMLのvoice-containerに追加
+        voiceContainer.appendChild(bubble);
+    });
+}
+
+// ページ読み込み時に吹き出しを生成
+document.addEventListener('DOMContentLoaded', createSpeechBubbles);
+    </script>
 </body>
 </html>
