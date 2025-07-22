@@ -1,3 +1,20 @@
+
+        /* グローバルなフォント設定と背景色を設定します */
+        body {
+            font-family: "Inter", sans-serif;
+            background-color: #f8faff; /* 非常に明るい青みがかったグレーの背景色 */
+            color: #333; /* 基本のテキスト色 */
+        }
+        /* セクションのパディング */
+        section {
+            padding: 4rem 0;
+        }
+        /* コンテナの最大幅と中央揃え */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
 /*メイン画像*/
 .image-container {
   position: relative; /* 親要素を基準にする */
@@ -59,4 +76,83 @@ img {
 .footer-copyright {
   font-size: 14px;
   color: #666;
+}
+/*サブタイトル*/
+.subtitle {
+  border: 2px solid #87CEEB; /* 水色の枠線 */
+  padding: 10px; /* 枠線とテキストの間の余白 */
+  border-radius: 5px; /* 枠線の角を丸くする（オプション） */
+}
+
+/*
+ * 参加者の声コンテナのスタイル
+ * 吹き出しを横並びにするためにFlexboxを使用
+ */
+.voice-container {
+    display: flex; /* Flexboxを有効にする */
+    flex-wrap: wrap; /* 吹き出しが入りきらない場合に折り返す */
+    gap: 20px; /* 吹き出し間の間隔 */
+    justify-content: center; /* 中央寄せ */
+    margin-top: 20px; /* 上部の余白 */
+}
+
+/*
+ * 個々の吹き出しのスタイル
+ */
+.speech-bubble {
+    position: relative; /* 疑似要素の位置決めのため */
+    background-color: #e0f7fa; /* 吹き出しの背景色（水色系） */
+    border-radius: 15px; /* 角の丸み */
+    padding: 20px; /* 内側の余白 */
+    width: calc(50% - 10px); /* 2列表示で、gapを考慮した幅 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* 軽い影 */
+    text-align: left; /* テキストは左寄せ */
+    display: flex; /* Flexboxを使って内容を配置 */
+    flex-direction: column; /* 縦方向に並べる */
+    justify-content: space-between; /* 上下均等配置 */
+    min-height: 120px; /* 最小の高さ */
+    box-sizing: border-box; /* パディングとボーダーを要素の幅に含める */
+}
+
+/* スマートフォン表示など、画面幅が狭い場合の調整 */
+@media (max-width: 768px) {
+    .speech-bubble {
+        width: 100%; /* 1列表示 */
+    }
+}
+
+/*
+ * 吹き出しのしっぽ（下）
+ */
+.speech-bubble::after {
+    content: ''; /* 疑似要素にはcontentが必要 */
+    position: absolute; /* 親要素を基準に配置 */
+    bottom: -10px; /* 吹き出しの下に配置 */
+    left: 50%; /* 中央に配置 */
+    transform: translateX(-50%) rotate(45deg); /* 中央寄せして45度回転 */
+    width: 20px; /* しっぽの幅 */
+    height: 20px; /* しっぽの高さ */
+    background-color: #e0f7fa; /* 吹き出しと同じ背景色 */
+    border-radius: 3px; /* 少し角を丸める */
+    z-index: -1; /* 吹き出しの下に配置 */
+}
+
+/*
+ * ユーザー名のスタイル
+ */
+.username {
+    font-weight: bold; /* 太字 */
+    color: #00796b; /* 濃いめの緑色 */
+    margin-bottom: 10px; /* 下の余白 */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* 下線 */
+    padding-bottom: 5px; /* 下線との間隔 */
+}
+
+/*
+ * メッセージのスタイル
+ */
+.message {
+    color: #333; /* 文字色 */
+    line-height: 1.6; /* 行の高さ */
+    flex-grow: 1; /* 残りのスペースを埋める */
 }
