@@ -2,39 +2,150 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-<meta name="robots" content="noindex">
-    <meta name="googlebot" content="noindex">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="favicon.png">
-    <title>djug雑談部 ルール</title>
-    <!-- Google Fonts - Inter を追加し、よりモダンなフォントを使用 -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <!-- Tailwind CSS を追加して、モダンなデザインとレスポンシブ対応を強化 -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>djug雑談部 参加申し込み</title>
+    
     <style>
-        /* CSSカスタムプロパティでテーマカラーを定義 */
-        :root {
-            /* ライトモードのデフォルトカラー */
-            --bg-color: #f2f3f5; /* Discordライトモードの背景色 */
-            --container-bg: #ffffff;
-            --text-color: #2e3338; /* Discordライトモードのテキスト色 */
-            --header-color: #5865f2; /* Discordブルー */
-            --border-color: #e3e5e8;
-            --rules-bg: #f9f9f9;
-            --button-bg: #5865f2;
-            --button-hover-bg: #4752c4;
-            --button-disabled-bg: #99aab5; /* Discordグレー */
-            --input-bg: #ffffff;
-            --input-border: #dcdcdc;
-            --link-color: #007bff; /* リンク色 */
+        /* ページ全体の基本的なスタイル */
+        body {
+            font-family: 'Arial', sans-serif;
+            padding: 20px;
+            background-color: #f4f4f9; /* 薄い背景色 */
         }
+        /* フォーム全体を中央に配置し、枠を付ける */
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #007bff; /* タイトル下の線 */
+            padding-bottom: 10px;
+        }
+        /* ラベル（項目名）のスタイル */
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        /* テキスト入力欄とボタンの共通スタイル */
+        input[type="text"], input[type="email"], textarea, input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; 
+        }
+        textarea {
+            resize: vertical; /* 垂直方向のみリサイズ可能 */
+            height: 100px;
+        }
+        /* 送信ボタンのスタイル */
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 16px;
+            transition: background-color 0.3s; /* ホバー時のアニメーション */
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        /* 応答メッセージのスタイル */
+        #response-message {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            display: none; /* 初期状態では非表示 */
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>📝 djug雑談部 参加申し込みフォーム</h2>
+        
+        <form id="applyForm">
+            
+            <label for="userName">**お名前（DiscordなどのID名）:**</label>
+            <input type="text" id="userName" name="userName" required>
+            
+            <label for="userEmail">**メールアドレス (招待URLを送ります):**</label>
+            <input type="email" id="userEmail" name="userEmail" required>
+            
+            <label for="reason">**参加理由 (簡単に):**</label>
+            <textarea id="reason" name="reason" required></textarea>
+            
+            <input type="submit" value="招待メールを送信してもらう">
+        </form>
 
-        /* ダークモードのカラー設定 */
-        .dark-mode {
-            --bg-color: #36393f; /* Discordダークモードの背景色 */
-            --container-bg: #2f3136; /* Discordダークモードのカード背景色 */
-            --text-color: #dcddde; /* Discordダークモードのテキスト色 */
-            --header-color: #5865f2; /* Discordブルー */
+        <div id="response-message"></div>
+    </div>
+
+    <script>
+        document.getElementById('applyForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // フォームの通常の送信をキャンセル
+            
+            // ⭐注意: ここにデプロイしたGoogle Apps ScriptのURLを記述してください
+            const gasUrl = "https://script.google.com/macros/s/AKfycby9WjFnlqjeCLm5zi3abnOHreMwkQ8EtqFi211wi1tFDcj5wNloj534SCcIzNJk7K--uQ/exec"; 
+            
+            const form = e.target;
+            const formData = new FormData(form);
+            const responseMessage = document.getElementById('response-message');
+
+            // フォームデータをJSON形式に変換
+            const data = {};
+            formData.forEach((value, key) => data[key] = value.trim());
+
+            // 送信中のメッセージを表示
+            responseMessage.textContent = '送信中...しばらくお待ちください。'; 
+            responseMessage.style.display = 'block';
+            responseMessage.style.backgroundColor = '#fff3cd'; // 黄色（待機色）
+            responseMessage.style.color = '#856404';
+            
+            // GASへのデータ送信（非同期通信: fetch APIを使用）
+            fetch(gasUrl, {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json()) // 応答をJSONとして解析
+            .then(result => {
+                // GASからの応答を処理
+                responseMessage.textContent = result.message;
+
+                if (result.status === 'success') {
+                    // 成功時: 背景を緑に
+                    responseMessage.style.backgroundColor = '#d4edda'; 
+                    responseMessage.style.color = '#155724';
+                    form.reset(); // フォームをクリア
+                } else {
+                    // 失敗時: 背景を赤に
+                    responseMessage.style.backgroundColor = '#f8d7da';
+                    responseMessage.style.color = '#721c24';
+                }
+            })
+            .catch(error => {
+                // 通信エラー時
+                responseMessage.textContent = '通信エラーが発生しました。時間をおいて再度お試しください。';
+                responseMessage.style.backgroundColor = '#fcf8e3';
+                responseMessage.style.color = '#8a6d3b';
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>            --header-color: #5865f2; /* Discordブルー */
             --border-color: #202225;
             --rules-bg: #292b2f;
             --button-bg: #5865f2;
